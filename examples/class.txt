@@ -1,0 +1,15 @@
+diagram: class
+title "订单领域模型"
+class User
+field User - Long id
+field User - String email
+method User + login(email: String, password: String): boolean
+class Order
+field Order - Long id
+field Order - BigDecimal total
+method Order + pay(): void
+enum OrderStatus
+field OrderStatus PAID
+field OrderStatus CANCELLED
+relation User "1" -- "*" Order : places
+relation Order --> OrderStatus : status
